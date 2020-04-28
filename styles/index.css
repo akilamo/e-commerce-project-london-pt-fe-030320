@@ -1,0 +1,216 @@
+@font-face {
+  src: url(../fonts/avnir/AvenirLTStd-Medium.otf);
+  font-family: Avenir;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Avenir;
+}
+
+body {
+  width: 1440px;
+  height: 100%;
+
+}
+
+/* ------------TOP NAVIGATION------------- */
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a.active {
+  color: #00c98d;
+}
+
+header {
+  width: 100%;
+  height: 8vh;
+  position: relative;
+  display: flex;
+
+  justify-content: space-between;
+  padding: 10px 2%;
+}
+
+.top_nav {
+  display: flex;
+  align-items: flex-end;
+}
+
+.main_nav {
+  display: flex;
+  align-items: end;
+}
+
+.main_nav li {
+  display: inline-block;
+  margin: 0 2vw;
+}
+
+.right_nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 10%;
+  height: 70px;
+  right: 6%;
+}
+
+#cart-container {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.logo_cart {
+  width: 29px;
+}
+
+.basket {
+  position: absolute;
+  align-self: flex-start;
+  text-align: center;
+  margin-left: 40%;
+  bottom: 65%;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+
+  background-color: #00c98d;
+  color: white;
+  visibility: hidden;
+}
+
+.login {
+  position: absolute;
+  height: 18px;
+  right: 0%;
+  text-align: right;
+}
+
+/* -----------NAV + SEARCH MENU ----------*/
+
+nav {
+  width: 100%;
+  height: 12vh;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search {
+  margin: auto;
+  row-gap: 41%;
+  display: inline-grid;
+}
+
+.sort-options {
+  margin: auto;
+  display: inline-grid;
+}
+
+.option {
+  display: flex;
+  justify-content: space-between;
+}
+
+.arrow-bestmatch {
+  position: relative;
+  align-self: center;
+  right: 3%;
+}
+
+/* ----------------MAIN SECTION---------------- */
+
+.carousel-container {
+  width: 100%;
+  height: 65vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-img {
+  position: absolute;
+  filter: brightness(80%);
+}
+
+.hero-img:hover {
+  filter: brightness(75%);
+}
+
+.hero-text {
+  position: absolute;
+  height: fit-content;
+  color: white;
+  font-size: larger;
+  padding: 3% 8% 0;
+  width: 100%;
+}
+
+.carousel-btn {
+  position: absolute;
+  align-self: center;
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  width: 85%;
+  visibility: hidden;
+}
+
+#nextBtn:hover,
+#prevBtn:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.hero-text > h3 {
+  text-decoration: underline;
+  font-size: x-large;
+}
+
+/* --------------FOOTER--------------- */
+
+.line-footer {
+  position: absolute;
+  top: 85%;
+  padding-left: 3%;
+}
+
+footer {
+  display: grid;
+  grid-template-columns: 70% 20%;
+  column-gap: 1%;
+  position: relative;
+  margin-bottom: 2%;
+}
+
+footer > div:first-child {
+  width: 70%;
+  margin-left: 25%;
+}
+
+.links {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.social {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.section-separator {
+  height: 1px;
+  border-bottom: solid 1px lightgrey;
+  margin: 3% 3%;
+}

@@ -1,12 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styles/normalize.css.css">
+    <link rel="stylesheet" type="text/css" href="./styles/index.css">
     <title>SOFAS</title>
 </head>
+
 <body>
+
+
+    <header>
+        <div class="top_nav">
+       
+            <ul class="main_nav">
+                <img src="./images/topnav-logo.png" alt="logo_nav" class="logo_nav">
+                <li class="home"><a href="index.html" class="active">HOME</a></li>
+                <li class="shop"><a href="2copy-PLP.html">SHOP</a></li>
+                <li class="magazine"><a href="#">MAGAZINE</a></li>
+            </ul>
     
+        </div>
+    
+    
+        <div class="right_nav">
+            <div id="cart-container">
+                <img src="./images/cart-button.png" alt="" class="logo_cart">
+                <div class="basket"></div>
+            </div>
+            <div class="login"><a href="#">LOGIN</a></div>
+    
+        </div>
+    
+    </header>
+
+
+    <nav>
+    
+        <div class="search">
+            <img src="./images/search-icon.png" alt="search-icon">
+            <img src="./images/line-searchbar.png" alt="line">
+        </div>
+    
+        <div class="sort-options">
+            <div class="option">
+                <p>Best Match</p>
+                <img src="./images/arrow-sorting.png" alt="arrow-sorting" class="arrow-bestmatch">
+            </div>
+            <img src="./images/line-bestmatch.png" alt="line" class="line-bestmatch">
+        </div>
+    
+    </nav>
+
+
+
+    <div class="carousel-container">
+
+         <div class="hero-img">
+            <img src="./images/sofa-1.png" alt="sofas" class=".img_sofa">
+        </div>
+    
+
+        <div class='hero-text'>
+            <h1>CREATE YOUR CALM</h1>
+            <h3>Relax right here</h3>
+        </div>
+
+        <div class="carousel-btn">
+            <img src="./images/arrow-left.png" alt="previous-image" id="prevBtn">
+            <img src="./images/arrow-right.png" alt="next-image" id="nextBtn">
+        </div>
+
+
+    </div>
+
+
+    
+    <!-- <img src="./images/line-footer.png" alt="" class="line-footer"> -->
+    <div class='section-separator'></div>
+    <footer>
+        
+
+        <div>
+        <ul class="links">
+            <li class="about"><a href="#">ABOUT US</a></li>
+            <li class="help"><a href="#">HOW CAN WE HELP</a></li>
+            <li class="shoproom"><a href="#">SHOP BY ROOM</a></li>
+            <li class="shopstyle"><a href="#">SHOP BY STYLE</a></li>
+        </div>
+
+        <div>
+            <ul class="social">
+            <li class="logo_instagram"><a href="#"></a><img src="images/instagram-logo.png" alt="logo_instagram"> </a></li>
+            <li class="logo_facebook"><a href="#"><img src="./images/facebook-logo.png" alt="logo_facebook"> </a></li>
+            <li class="logo_twitter"><a href="#"><img src="./images/twitter-logo.png" alt="logo_twitter"> </a></li>
+
+        </ul>
+    </div>
+    </footer>
+
+
+
     <script src="products.js"></script>
+    <script src="index.js"></script>
+    <script src="shop.js"></script>
 </body>
+
 </html>
