@@ -1,4 +1,4 @@
-// CAROUSEL HOME PAGE
+// CAROUSEL HOME PAGE 
 
 const carousel = document.querySelector(".hero-img");
 const prevBtn = document.querySelector("#prevBtn");
