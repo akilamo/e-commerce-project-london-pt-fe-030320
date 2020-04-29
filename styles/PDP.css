@@ -115,3 +115,82 @@ button {
   bottom: 70%;
   justify-self: self-end;
 }
+
+
+.product-carousel >img:first-child, .product-carousel >img:last-child {
+  height: 10px;
+  align-self: center;
+
+}
+
+
+
+
+
+@media (max-width: 600px) {
+  .right_nav {
+    position: absolute;
+    width: 90px;
+    height: 24px;
+    left: 309px;
+    top: 40px;
+  }
+
+
+body {
+  margin: 0;
+}
+
+}
+
+
+
+
+@media (max-width: 430px) {
+  body {
+    width: 500px;
+  }
+
+  .search {
+    padding: 0 10%;
+  }
+
+
+
+ .product-detail-container {
+  display: grid;
+  /* width: 80%; */
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  /* top: 15%; */
+  margin: 10% auto;
+} 
+
+
+.product-details{
+  display:inline;
+}
+
+.product-carousel{
+  display: none;
+}
+
+
+.right-side-details{
+  margin: 50px;
+  display: inline-block;
+}
+
+
+#add-to-basket {
+  height: 40px;
+}
+
+#details-drop-dow {
+  height: 40px;
+}
+
+
+  
+}

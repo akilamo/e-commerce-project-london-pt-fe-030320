@@ -84,7 +84,7 @@ addToBasketIcon.onclick = () => {addToBasket(product)}
 
 
 const renderProducts = (allProducts) => {
-    // prodContainer.innerText =  "";
+    prodContainer.innerHTML =  "";
     allProducts.forEach(product => {
         renderProduct(product)
     });
@@ -142,8 +142,8 @@ page4.addEventListener('click', () => {
 })
 }
 
-renderProductsPerPage(PRODUCTS)
-
+renderProductsPerPage(PRODUCTS);
+// renderProducts(PRODUCTS)
 
 
 ///LIST OF COLOR OPTIONS TO FILTER BY 
@@ -218,6 +218,11 @@ renderColors(uniqueColor)
 
 //EVENT LISTENERS PRICE INPUT
 
+//set min and max price default values 
+minPrice.value = 0
+maxPrice.value = 1000
+
+
 minPrice.addEventListener("input", () => {
   minPriceDisplayed.innerText = "$" + minPrice.value;
 });
@@ -226,16 +231,15 @@ maxPrice.addEventListener("input", () => {
   maxPriceDisplayed.innerText = "$" + maxPrice.value;
 });
 
+const sliders = document.querySelectorAll('.sliders input')
+let slide1 = parseFloat(sliders[0].value);
+let slide2 = parseFloat(sliders[1].value);
 
-
-    // const minMaxPriceCompare = (minPrice, maxPrice) => {
-
-//     if(minPrice > maxPrice) {
-//         maxPrice = minPrice;
-//         minPrice = maxPrice;
-//     }
-// return minPrice, maxPrice
-// }
+if(slide1 > slide2) { 
+  let tmp = slide2; 
+  slide2=slide1;
+  slide1 = tmp;
+}
 
 
 
@@ -321,109 +325,46 @@ const fillBubbleColor = (product) => {
 
 
 
-//APPLY FILTERS LOGIC... none of which are working
+//APPLY FILTERS LOGIC
 
 
-/**
-I tried to create an object that would store price and colour input values.
-The function here works when user selects price range but not with colour, with selectedColors 
-not returning anything.
-*/
-
-const highestProductPrice = [...PRODUCTS].sort((a, b) => b.price - a.price)[0]
-  .price;
-
-const filteredProductsObj = () => {
-
-    // const selectedColors = [];
-
-    // let inputColor = document.querySelectorAll('input[type="checkbox"]')
-    // for (let i=0; i<inputColor.length; i++) {
-    //     inputColor[i].addEventListener('click', () => {
-    //         if(inputColor[i].checked === true) {
-    //             selectedColors.push(inputColor[i].value)      
-    //         }
-    //         return selectedColors
-    //     })
-        
-    // }
-    let fromPrice = minPrice.value;
-    let toPrice = maxPrice.value;
-
-    if (!fromPrice) {
-        fromPrice = 0
+const applyFilters = (fromPrice, toPrice, selectedColors) => {
+  const filteredProducts = PRODUCTS.filter((product) => {
+    if (product.price >= fromPrice && product.price <= toPrice) {
+      return true;
+    } else {
+      return false;
     }
-    if(!toPrice) {
-        toPrice = highestProductPrice;
+  }).filter((product) => {
+    let productColors = product.colors;
+    if (
+      selectedColors.length === 0 ||
+      productColors.some((color) => selectedColors.includes(color))
+    ) {
+      return true;
+    } else {
+      return false;
     }
-return {
-        from: fromPrice,
-        to: toPrice,
-        // selectedColors: selectedColors
-    }
-}
+  });
+
+  renderProducts(filteredProducts);
+};
 
 
+filterContainer.addEventListener("change", () => {
+  const priceFrom = parseInt(minPrice.value);
+  const priceTo = parseInt(maxPrice.value);
+
+  const selectedColors = [];
+  const inputColor = document.querySelectorAll("input:checked");
+  for (let i = 0; i < inputColor.length; i++) {
+    selectedColors.push(inputColor[i].value);
+  }
+
+  applyFilters(priceFrom, priceTo, selectedColors);
+});
 
 
-/* Second step was then to find a workaround with colors, by storing selected colors using a separate function
-and a global variable I would reuse in the function above
- */
-
-const selectedColors = [];
-const inputColor = document.querySelectorAll('input[type="checkbox"]');
-    const filterColor = () => { 
-
-      for (let i = 0; i < inputColor.length; i++) {
-        inputColor[i].addEventListener("click", () => {
-          if (inputColor[i].checked === true) {
-            selectedColors.push(inputColor[i].value);
-          }
-          return selectedColors;
-        });
-      }
-    };
-
-filterColor()
-
-
-
-
-/* I then tried different ways of finding products that contained selected color, and filter them out
-to create a new array with matching products.
-commonColors works as in it returns true or false, but I didn't find a proper way of using this to 
-actually filter products/
-*/
- 
-const commonColors = (prodColor,selectedColor) =>{
-     return prodColor.some(color => selectedColor.includes(color))
-}
-
-// let filteredColors = PRODUCTS.filter(product => {
-//     product.colors.some(color => selectedColors.includes(color))
-// } )
-
-// let filteredColors = PRODUCTS.filter(product => commonColors(product.colors,selectedColors))
-
-
-
-
-/* I then tried using a loop within a loop but with no success ... */
-
-let arrayOfFilteredProducts = [];
-const arrayFiltered = () => {
-
-for (let i=0; i< PRODUCTS.length; i++) {
-
-    for(let j =0; j< selectedColors.length; j++) {
-        if(PRODUCTS[i].colors === selectedColors[j]) {
-            arrayOfFilteredProducts.push(PRODUCTS[i])
-        }
-        
-    }
-return arrayOfFilteredProducts;
-}
-}
 
 
 
@@ -458,35 +399,3 @@ return arrayOfFilteredProducts;
 
 // renderCategories(sortedUniqueCategories);
 ///--------------------------------------------------------///
-
-
-
-/*const applyFilters = (fromPrice, toPrice) => {
-    const filteredProducts = PRODUCTS.filter((product) => {
-      //for(let i=0;i<PRODUCTS.length;i++) {
-      //     if (selectedColors.length === 0 || selectedColors.includes(product.colors[i])) {
-      //         return true
-      //     } else {
-      //         return false
-      //     }
-      // }
-      // }).filter(product => {
-      if (product.price >= fromPrice && product.price <= toPrice) {
-        return true;
-      } else {
-        return false;
-      }
-      // }
-    });
-  
-    renderProductsPerPage(filteredProducts);
-  };
-  */
-  
-
-
-
-
-
-
-
